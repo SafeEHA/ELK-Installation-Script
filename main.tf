@@ -90,9 +90,7 @@ resource "aws_instance" "elk_server" {
   provisioner "local-exec" {
     command = "echo 'ELK server created with IP: ${self.public_ip}'"
   }
-  provisioner "local-exec" {
-    command = "echo '\\n\\nIMPORTANT: Please wait 3-5 minutes for the ELK stack to fully initialize before accessing Elasticsearch or Kibana.\\n'"
-  }
+}
 
 # Output the public IP of the ELK server
 output "elk_server_public_ip" {
