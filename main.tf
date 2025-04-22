@@ -63,11 +63,6 @@ resource "aws_security_group" "elk_sg" {
   }
 }
 
-resource "local_file" "elk_install_script" {
-  content  = file("${path.module}/ELK.sh")
-  filename = "${path.module}/ELK.sh"
-}
-
 resource "aws_instance" "elk_server" {
   ami           = "ami-075686beab831bb7f"  # Amazon Linux 2 AMI (adjust for your region)
   instance_type = "t3.large"  # Recommended for ELK
